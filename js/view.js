@@ -1,6 +1,9 @@
 function updateView() {
     document.getElementById('app').innerHTML = /*HTML*/`
         ${createAddColorThemeHtml()}
+        <button onclick="sortBy(null)">Fjern sortering</button>
+        <button onclick="sortBy('name')">Sorter etter navn</button>
+        <button onclick="sortBy('creator')">Sorter etter rating</button>
         ${model.creatorFilter == null ? '' : /*HTML*/`
             <button onclick="filterByCreator(null)">fjern filter</button>
         `}
@@ -64,9 +67,11 @@ function createColorThemesHtml() {
     // in - gå gjennom alle feltene til et objekt
     // of - gå gjennom elementer i en liste
 
-    for (let i = 0; i < model.colorThemes.length; i++) {
-        let colorTheme = model.colorThemes[i];
-        if (model.creatorFilter != null 
+    let colorThemes = sort(model.colorThemes);
+
+    for (let i = 0; i < colorThemes.length; i++) {
+        let colorTheme = colorThemes[i];
+        if (model.creatorFilter != null
             && model.creatorFilter != colorTheme.creator) continue;
         colorsHtml += /*HTML*/`
             <div class="color">
@@ -94,3 +99,41 @@ function createColorThemesHtml() {
     }
     return colorsHtml;
 }
+
+function sort(colorThemesBase) {
+    if (model.sort == null) return colorThemesBase;
+    let colorThemes = [...colorThemesBase];
+    const compareFunction =
+        model.sort == 'creator'
+            ? (a, b) => b.rating - a.rating
+            : (a, b) => a.creator.localeCompare(b.creator)
+    colorThemes.sort(compareFunction);
+    return colorThemes;
+}
+
+/*
+
+function sort(colorThemesBase) {
+    if (model.sort == null) return colorThemesBase;
+    let colorThemes = [...colorThemesBase];
+    if (model.sort == 'creator') {
+        colorThemes.sort((a, b) => b.rating - a.rating);
+    } else if (model.sort == 'name') {
+        colorThemes.sort((a, b) => a.creator.localeCompare(b.creator));
+    }
+    return colorThemes;
+}
+
+
+    V2:
+    colorThemes.sort(function (colorThemeA, colorThemeB) {
+        return colorThemeB.rating - colorThemeA.rating;
+    });
+
+    V1:
+    colorThemes.sort(compareColorThemes);
+
+    function compareColorThemes(colorThemeA, colorThemeB) {
+        return colorThemeB.rating - colorThemeA.rating;
+    }
+*/

@@ -8,6 +8,7 @@ const model = {
   rating: 0, 
   creator: '',
   creatorFilter: null,
+  sort: null,
 
   colorThemes: [
       { foregroundColor: "#1B998B", backgroundColor: "#E84855", highlightColor: "#F9DC5C", rating: 4.5, creator: "Aiden" },

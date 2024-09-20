@@ -27,7 +27,12 @@ function cancelAddColor() {
     updateView();
 }
 
-function filterByCreator(creator){
+function filterByCreator(creator) {
     model.creatorFilter = creator;
+    updateView();
+}
+
+function sortBy(sortField) {
+    model.sort = sortField;
     updateView();
 }
