@@ -26,3 +26,8 @@ function cancelAddColor() {
     model.isAdding = false;
     updateView();
 }
+
+function filterByCreator(creator){
+    model.creatorFilter = creator;
+    updateView();
+}

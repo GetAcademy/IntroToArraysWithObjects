@@ -7,6 +7,7 @@ const model = {
   highlightColor: '', 
   rating: 0, 
   creator: '',
+  creatorFilter: null,
 
   colorThemes: [
       { foregroundColor: "#1B998B", backgroundColor: "#E84855", highlightColor: "#F9DC5C", rating: 4.5, creator: "Aiden" },
@@ -15,7 +16,7 @@ const model = {
       { foregroundColor: "#F7FFF7", backgroundColor: "#FF6B6B", highlightColor: "#4ECDC4", rating: 4.7, creator: "Daniel" },
       { foregroundColor: "#D9BF77", backgroundColor: "#5D001E", highlightColor: "#C47AC0", rating: 4.6, creator: "Eleanor" },
       { foregroundColor: "#FFB7C3", backgroundColor: "#2B193D", highlightColor: "#FF6F61", rating: 4.2, creator: "Finn" },
-      { foregroundColor: "#FFBE0B", backgroundColor: "#FB5607", highlightColor: "#8338EC", rating: 4.4, creator: "Grace" },
+      { foregroundColor: "#FFBE0B", backgroundColor: "#FB5607", highlightColor: "#8338EC", rating: 4.4, creator: "Bella" },
       { foregroundColor: "#2EC4B6", backgroundColor: "#011627", highlightColor: "#FF3366", rating: 4.5, creator: "Henry" },
       { foregroundColor: "#F25F5C", backgroundColor: "#247BA0", highlightColor: "#70C1B3", rating: 4.3, creator: "Isla" },
       { foregroundColor: "#EDE574", backgroundColor: "#4E342E", highlightColor: "#FF7676", rating: 4.8, creator: "Jack" },

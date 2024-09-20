@@ -1,14 +1,17 @@
 function updateView() {
     document.getElementById('app').innerHTML = /*HTML*/`
         ${createAddColorThemeHtml()}
+        ${model.creatorFilter == null ? '' : /*HTML*/`
+            <button onclick="filterByCreator(null)">fjern filter</button>
+        `}
         <div class="colors">
             ${createColorThemesHtml()}
         </div>
     `;
 }
 
-function createAddColorThemeHtml(){
-    if(!model.isAdding) return '<button onclick="startAdd()">+</button>';
+function createAddColorThemeHtml() {
+    if (!model.isAdding) return '<button onclick="startAdd()">+</button>';
     return /*HTML*/`
         Forgrunnsfarge:
         <input 
@@ -63,11 +66,13 @@ function createColorThemesHtml() {
 
     for (let i = 0; i < model.colorThemes.length; i++) {
         let colorTheme = model.colorThemes[i];
+        if (model.creatorFilter != null 
+            && model.creatorFilter != colorTheme.creator) continue;
         colorsHtml += /*HTML*/`
             <div class="color">
                 <div class="topBox">
                     <div>
-                        Theme ${i+1}
+                        Theme ${i + 1}
                     </div>
                     <button onclick="deleteColor(${i})">x</button>
                 </div>
@@ -78,8 +83,8 @@ function createColorThemesHtml() {
                         " 
                     class="box">
                     
-                    Rating: ${colorTheme.rating} 
-                    Laget av: ${colorTheme.creator}
+                    Rating: ${colorTheme.rating}                     
+                    Laget av: <a href="javascript:filterByCreator('${colorTheme.creator}')">${colorTheme.creator}</a>
                     <span style="color: ${colorTheme.highlightColor}">
                         Utheving
                     </span>
