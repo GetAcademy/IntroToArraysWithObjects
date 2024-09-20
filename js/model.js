@@ -1,6 +1,13 @@
 const model = {
   isAdding: false,
-  addColorName: '',
+
+  // inputs for nytt theme
+  foregroundColor: '', 
+  backgroundColor: '', 
+  highlightColor: '', 
+  rating: 0, 
+  creator: '',
+
   colorThemes: [
       { foregroundColor: "#1B998B", backgroundColor: "#E84855", highlightColor: "#F9DC5C", rating: 4.5, creator: "Aiden" },
       { foregroundColor: "#8D86C9", backgroundColor: "#E27D60", highlightColor: "#41B3A3", rating: 4.8, creator: "Bella" },

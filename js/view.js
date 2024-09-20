@@ -8,14 +8,48 @@ function updateView() {
 }
 
 function createAddColorThemeHtml(){
-    return '';
-    if(!isAdding) return '<button onclick="startAdd()">+</button>';
+    if(!model.isAdding) return '<button onclick="startAdd()">+</button>';
     return /*HTML*/`
+        Forgrunnsfarge:
         <input 
             type="text" 
-            oninput="addColorName=this.value"
-            value="${addColorName ?? ''}"
+            oninput="model.foregroundColor=this.value"
+            value="${model.foregroundColor ?? ''}"
             />
+        <br/>
+        Bakgrunnsfarge:
+        <input 
+            type="text" 
+            oninput="model.backgroundColor=this.value"
+            value="${model.backgroundColor ?? ''}"
+            />
+        <br/>
+        Uthevingsfarge:
+        <input 
+            type="text" 
+            oninput="model.backgroundColor=this.value"
+            value="${model.backgroundColor ?? ''}"
+            />
+        <br/>
+        Laget av:
+        <input 
+            type="text" 
+            oninput="model.creator=this.value"
+            value="${model.creator ?? ''}"
+            />
+        <br/>
+        Rating:
+        <input 
+            type="number" 
+            min="0.0"
+            max="6.0"
+            step="0.1";
+            oninput="model.rating=this.value"
+            value="${model.rating ?? ''}"
+            />
+        <br/>
+
+
         <button onclick="addColor()">Legg til ny farge</button>
         <button onclick="cancelAddColor()">Avbryt</button>              
     `;
@@ -44,12 +78,11 @@ function createColorThemesHtml() {
                         " 
                     class="box">
                     
-                    Tekst
+                    Rating: ${colorTheme.rating} 
+                    Laget av: ${colorTheme.creator}
                     <span style="color: ${colorTheme.highlightColor}">
                         Utheving
                     </span>
-                    ${colorTheme.rating}
-                    ${colorTheme.creator}
                 </div>
             </div>                                
         `;
