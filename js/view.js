@@ -133,6 +133,10 @@ function sort(colorThemesBase) {
     V1:
     colorThemes.sort(compareColorThemes);
 
+    function compareColorThemes(a, b) {
+        return a.rating - b.rating;
+    }
+
     function compareColorThemes(colorThemeA, colorThemeB) {
         return colorThemeB.rating - colorThemeA.rating;
     }
