@@ -1,0 +1,8 @@
+1: Litt info om emne 2
+   - Undervisning man, tir, ons, tor fra kl. 10.00 - maks. 11:30
+2: Oppgradere farge-app til liste av objekter - color themes
+   - CRUD-operasjonene
+   - sortering, filtrering, paging
+3: Intro Single Page Applications (SPA)
+   - forskjellige sider
+   - hash/navigasjon

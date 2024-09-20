@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //let numbers = [1, 2, 4, 8, 16, 32];
+
+        function countBelow10(numbers) {
+            let count = 0;
+            for (let number of numbers) {
+                if(number<10){
+                    count++;
+                }
+            }
+            return count;
+        }
+        
+        function countA(text) {
+            let count = 0;
+            for (let character of text) {
+                if(character == 'a'){
+                    count++;
+                }
+            }
+            return count;
+        }
+
+        function isSortedA(numbers) {
+            let lastNumber;
+            for (let number of numbers) {
+                if(number < lastNumber) return false;
+                lastNumber = number;
+            }
+            return true;
+        }
+
+        function isSortedB(numbers) {
+            for (let index = 1; index < numbers.length; index++) {
+                if(numbers[index] < numbers[index-1]) return false;
+            }
+            return true;
+        }
+        
+        </script>
+
+</body>
+
+</html>
