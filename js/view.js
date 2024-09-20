@@ -38,12 +38,16 @@ function createColorThemesHtml() {
                     <button onclick="deleteColor(${i})">x</button>
                 </div>
                 <div 
-                    style="background-color: ${colorTheme.foregroundColor}" 
+                    style="
+                        background-color: ${colorTheme.backgroundColor};
+                        color: ${colorTheme.foregroundColor};
+                        " 
                     class="box">
                     
-                    Tekst: ${colorTheme.foregroundColor}
-                    Bakgrunn: ${colorTheme.backgroundColor}
-                    Utheving: ${colorTheme.highlightColor}
+                    Tekst
+                    <span style="color: ${colorTheme.highlightColor}">
+                        Utheving
+                    </span>
                     ${colorTheme.rating}
                     ${colorTheme.creator}
                 </div>
